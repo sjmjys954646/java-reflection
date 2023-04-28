@@ -13,7 +13,7 @@ public class ReflectionTest {
     private static final Logger logger = LoggerFactory.getLogger(ReflectionTest.class);
 
     @Test
-    @DisplayName("리플렉션을 이용해서 클래스와 메소드의 정보를 정확하게 출력해야 한다.")
+    @DisplayName("테스트1: 리플렉션을 이용해서 클래스와 메소드의 정보를 정확하게 출력해야 한다.")
     public void showClass() {
         SoftAssertions s = new SoftAssertions();
         Class<Question> clazz = Question.class;
@@ -21,7 +21,6 @@ public class ReflectionTest {
     }
 
     @Test
-    @SuppressWarnings("rawtypes")
     public void constructor() throws Exception {
         Class<Question> clazz = Question.class;
         Constructor[] constructors = clazz.getConstructors();
