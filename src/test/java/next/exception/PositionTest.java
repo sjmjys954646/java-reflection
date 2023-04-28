@@ -1,8 +1,9 @@
 package next.exception;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class PositionTest {
     @Test
@@ -19,29 +20,35 @@ public class PositionTest {
         assertThat(p.getY()).isEqualTo(7);
     }
 
-    @Test (expected = InValidPositionException.class)
+    @Test
     public void 길이가_2가_아닌_경우() {
-        new Position("a");
+        assertThatThrownBy(() -> new Position("a"))
+                .isInstanceOf(InValidPositionException.class);
     }
     
-    @Test (expected = InValidPositionException.class)
+    @Test
     public void notValid_0보다_작은_X() {
-        new Position("Z1");
+        assertThatThrownBy(() -> new Position("Z1"))
+                .isInstanceOf(InValidPositionException.class);
     }
     
-    @Test (expected = InValidPositionException.class)
+    @Test
     public void notValid_7보다_큰_X() {
-        new Position("i1");
+        assertThatThrownBy(() -> new Position("i1"))
+                .isInstanceOf(InValidPositionException.class);
     }
     
-    @Test (expected = InValidPositionException.class)
+    @Test
     public void notValid_0보다_작은_Y() {
         new Position("a0");
+        assertThatThrownBy(() -> new Position("a0"))
+                .isInstanceOf(InValidPositionException.class);
     }
     
-    @Test (expected = InValidPositionException.class)
+    @Test
     public void notValid_7보다_큰_Y() {
-        new Position("a9");
+        assertThatThrownBy(() -> new Position("a9"))
+                .isInstanceOf(InValidPositionException.class);
     }
 
 }

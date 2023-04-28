@@ -1,17 +1,17 @@
 package next.fp;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
-
 public class StreamStudyTest {
 	private List<Integer> numbers;
 	
-	@Before
+	@BeforeEach
 	public void setup() {
 		numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
 	}

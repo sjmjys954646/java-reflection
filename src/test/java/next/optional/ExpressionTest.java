@@ -1,8 +1,9 @@
 package next.optional;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.*;
+
 
 
 public class ExpressionTest {
@@ -11,8 +12,9 @@ public class ExpressionTest {
         assertThat(Expression.PLUS == Expression.of("+")).isTrue();
     }
     
-    @Test (expected = IllegalArgumentException.class)
+    @Test
     public void notValidExpression() {
         Expression.of("&");
+        assertThatThrownBy(() -> Expression.of("&")).isInstanceOf(IllegalArgumentException.class);
     }
 }
