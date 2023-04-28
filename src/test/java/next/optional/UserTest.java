@@ -1,9 +1,10 @@
 package next.optional;
 
+
+import org.junit.jupiter.api.Test;
+
 import static next.optional.User.*;
 import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.Test;
 
 public class UserTest {
     @Test

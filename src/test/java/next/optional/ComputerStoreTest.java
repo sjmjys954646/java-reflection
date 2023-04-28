@@ -2,10 +2,9 @@ package next.optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
-
 import next.optional.Computer.Soundcard;
 import next.optional.Computer.USB;
+import org.junit.jupiter.api.Test;
 
 public class ComputerStoreTest {
 	@Test
