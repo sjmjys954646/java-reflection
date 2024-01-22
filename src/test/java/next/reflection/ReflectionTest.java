@@ -1,6 +1,7 @@
 package next.reflection;
 
 import java.lang.reflect.Constructor;
+import java.util.Arrays;
 
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
@@ -18,6 +19,12 @@ public class ReflectionTest {
         SoftAssertions s = new SoftAssertions();
         Class<Question> clazz = Question.class;
         logger.debug("Classs Name {}", clazz.getName());
+        Arrays.stream(clazz.getFields())
+                .forEach(field -> logger.debug("Field Name: {}", field.getName()));
+        Arrays.stream(clazz.getConstructors())
+                .forEach(field -> logger.debug("Constructor Name: {}", field.getName()));
+        Arrays.stream(clazz.getMethods())
+                .forEach(field -> logger.debug("Method Name: {}", field.getName()));
     }
 
     @Test

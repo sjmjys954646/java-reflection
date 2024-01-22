@@ -7,6 +7,10 @@ repositories {
     mavenCentral()
 }
 
+test {
+    useJUnitPlatform()
+}
+
 dependencies {
     implementation('com.sparkjava:spark-core:2.6.0')
     implementation('com.sparkjava:spark-template-handlebars:2.5.5')
