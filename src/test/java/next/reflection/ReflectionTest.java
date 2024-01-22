@@ -2,8 +2,10 @@ package next.reflection;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 
+import next.optional.User;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -59,11 +61,19 @@ public class ReflectionTest {
     @Test
     public void privateFieldAccess() throws NoSuchFieldException, IllegalAccessException {
         Class<Student> clazz = Student.class;
+        Field f = clazz.getDeclaredField("name");
         logger.debug(clazz.getName());
         Student student = new Student();
-        Field f = clazz.getDeclaredField("name");
         f.setAccessible(true);
         f.set(student, "재성");
         logger.debug(student.getName());
+    }
+
+    @Test
+    public void makeUserClass() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        Class<User> clazz = User.class;
+        Constructor<User> constructor = clazz.getDeclaredConstructor(String.class, Integer.class);
+        User userInstance = constructor.newInstance("Yunsu", 25);
+        logger.debug(userInstance.toString());
     }
 }
