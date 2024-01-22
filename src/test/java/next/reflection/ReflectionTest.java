@@ -1,6 +1,7 @@
 package next.reflection;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.util.Arrays;
 
 import org.assertj.core.api.SoftAssertions;
@@ -38,5 +39,31 @@ public class ReflectionTest {
                 logger.debug("param type : {}", paramType);
             }
         }
+    }
+
+
+    public class Student {
+        private String name;
+
+        private int age;
+
+        public String getName() {
+            return name;
+        }
+
+        public int getAge() {
+            return age;
+        }
+    }
+
+    @Test
+    public void privateFieldAccess() throws NoSuchFieldException, IllegalAccessException {
+        Class<Student> clazz = Student.class;
+        logger.debug(clazz.getName());
+        Student student = new Student();
+        Field f = clazz.getDeclaredField("name");
+        f.setAccessible(true);
+        f.set(student, "재성");
+        logger.debug(student.getName());
     }
 }
